@@ -17,13 +17,14 @@ import { captureRef } from "react-native-view-shot";
 import { Canvas, Circle, Group } from "@shopify/react-native-skia";
 import Editor from "./src/Editor";
 import Preview from "./src/Preview";
-import { viewportWidth } from "./constants";
+import { viewportHeight, viewportWidth } from "./constants";
 import ContextProvider from "./GlobalContext";
 
 const styles = StyleSheet.create({
   safeAreaView: {
     flex: 1,
     backgroundColor: "#121212",
+    // overflow: "hidden",
     // backgroundColor: "black  ",
   },
 });
@@ -63,7 +64,7 @@ const App = () => {
   };
 
   return (
-    <SafeAreaView style={styles.safeAreaView}>
+    <View style={styles.safeAreaView}>
       <StatusBar backgroundColor="#121212" style="dark" />
       <ContextProvider>
         <Preview viewRef={viewRef} scale={1} />
@@ -75,7 +76,7 @@ const App = () => {
             overflow: "hidden",
           }}
         >
-          <Preview scale={5} exportable={true} />
+          <Preview scale={2} exportable={true} />
         </View>
         {/* <Button
           // style={{
@@ -101,7 +102,7 @@ const App = () => {
 
         <Editor />
       </ContextProvider>
-    </SafeAreaView>
+    </View>
   );
 };
 
